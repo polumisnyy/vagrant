@@ -1,1 +1,66 @@
-# vagrant
+# Vagrant Boilerplate
+
+This is a personal Vagrant setup that I use for each project that I manage. It's basic LEMP stack on Ubuntu 16.04 with a few additions such as Composer, Node.js and WP-CLI ready at the get-go.
+
+
+# Requirement
+
+* [VirtualBox](https://www.virtualbox.org/)
+* [Vagrant](https://www.vagrantup.com/)
+* [Vagrant::Hostsupdater](https://github.com/cogitatio/vagrant-hostsupdater)
+
+_Note: Vagrant::Hostsupdater is optional to automatically add the entry to the hosts file. If you skip that, you will need to manually edit the hosts file and add the related entry yourself._
+
+
+> **If you are using Windows, you may need to enable hardware virtualization (VT-x). It can usually be enabled via your BIOS. If you are using Hyper-V on a UEFI system you may additionally need to disable Hyper-V in order to access VT-x.**
+
+
+# Usage
+
+```
+git clone https://github.com/fsylum/vagrant-boilerplate <project-name>
+cd <project-name>
+vagrant up
+```
+
+All Vagrant commands like `vagrant halt`, `vagrant destroy` and `vagrant suspend` are applicable.
+
+# Credentials
+
+MySQL root:
+
+**User**: `root`
+**Password**: `password`
+
+Additional MySQL access:
+
+**User**: `vagrant`
+**Password**: `password`
+**Database**: `vagrant`
+
+# What's Included?
+
+* [Ubuntu 16.04](http://www.ubuntu.com/)
+* [nginx (mainline)](http://nginx.org/)
+* [php-fpm 7.1.x](http://php-fpm.org/)
+* [MariaDB 10.1.x](https://mariadb.org/)
+* [phpMyAdmin](https://www.phpmyadmin.net/)
+* [Git](https://git-scm.com/)
+* [Subversion](https://subversion.apache.org/)
+* [Composer](https://getcomposer.org/)
+* [Node.js](https://nodejs.org/)
+* [WP-CLI](http://wp-cli.org/)
+* [MailHog](https://github.com/mailhog/MailHog)
+
+## Directory Structure
+
+* `config` - Contains all services related configuration, please modify it accordingly to your usage.
+* `logs` - Contains all the logs generated from nginx as well as PHP errors.
+* `www` - The web root of your web application.
+
+## Domains
+
+By default, the site is accessible by using parent directory name as domain name with `.lh` tld. For example, if the boilerplate is installed inside `foobar` directory, the site then will be accessible on http://foobar.lh, Additionally, two subdomains will be available as shortcut to phpMyAdmin and Mailhog respectively:
+
+* http://mail.foobar.lh
+* http://db.foobar.lh
